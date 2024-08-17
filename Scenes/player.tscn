@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hr46"]
 size = Vector2(121, 120)
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" groups=["Player"]]
 gravity_scale = 0.0
 script = ExtResource("1_bajuw")
 
