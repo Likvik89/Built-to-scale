@@ -1,18 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6ysanfo2s6x1"]
+[gd_scene load_steps=4 format=3 uid="uid://c6ysanfo2s6x1"]
 
 [ext_resource type="Texture2D" uid="uid://b4jj6gmbtbe06" path="res://Sprites/medium_sword.png" id="1_csvoy"]
+[ext_resource type="Script" path="res://Scripts/sword.gd" id="1_jt4yp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr5gp"]
-size = Vector2(4, 21)
+size = Vector2(28, 175)
 
 [node name="Sword" type="Node2D" groups=["Weapons"]]
+script = ExtResource("1_jt4yp")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -5.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -24.5)
 shape = SubResource("RectangleShape2D_qr5gp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.8, 1)
+scale = Vector2(7, 7)
 texture = ExtResource("1_csvoy")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

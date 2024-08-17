@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+var health = 200
+const maxhealth = 200
+
 var speed = 0
 const acceleration = 40
 const deacceleration = 10
@@ -25,9 +28,6 @@ func _process(delta):
 
 func _physics_process(delta):
 	
-	print(speed)
-	print(dash_cooldown)
-	print(time_dashed)
 	
 	if dashing:
 		dash_cooldown = 0
@@ -39,7 +39,6 @@ func _physics_process(delta):
 		if time_dashed >= dash_duration:
 			dashing = false
 			time_dashed = 0
-	
 	else:
 		if dash_cooldown < time_between_dashes:
 			dash_cooldown += delta
@@ -58,11 +57,9 @@ func _physics_process(delta):
 			linear_velocity = Vector2(0,0)
 	
 	if Input.is_action_pressed("move_up"):
-		#linear_velocity += Vector2(0,-1)*speed
 		if Y > -1:
 			Y -= 0.2
 	elif Input.is_action_pressed("move_down"):
-		#linear_velocity += Vector2(0,1)*speed
 		if Y < 1:
 			Y += 0.2
 	else: 
@@ -72,11 +69,9 @@ func _physics_process(delta):
 			Y -= 0.2
 	
 	if Input.is_action_pressed("move_left"):
-		#linear_velocity += Vector2(-1,0)*speed
 		if X > -1:
 			X -= 0.2
 	elif Input.is_action_pressed("move_right"):
-		#linear_velocity += Vector2(1,0)*speed
 		if X < 1:
 			X += 0.2
 	else: 
@@ -89,3 +84,8 @@ func _physics_process(delta):
 		dashing = true
 	
 	
+
+func takedamage(damage):
+	health -= damage
+	print(health)
+	pass
