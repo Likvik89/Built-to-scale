@@ -22,4 +22,13 @@ shape = SubResource("RectangleShape2D_6hr46")
 zoom = Vector2(0.75, 0.75)
 
 [node name="Sword" parent="." instance=ExtResource("3_hh3un")]
-position = Vector2(10, 3)
+unique_name_in_owner = true
+position = Vector2(277, -111)
+
+[node name="Sword_start" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(125, -140)
+
+[node name="Sword_end" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-125, -140)

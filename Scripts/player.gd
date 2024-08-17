@@ -12,19 +12,18 @@ var dashing = false
 var X = 0
 var Y = 0
 
-
 var dash_cooldown = 3
 var time_between_dashes = 3
 var dash_speed = 2000
 var time_dashed = 0
 var dash_duration = 0.25
 
+const base_damage = 20
 
-func _process(delta):
-	
-	
-	
-	pass
+func _ready():
+	$Sword.start_position = $Sword_start.position
+	$Sword.ending_position = $Sword_end.position
+	$Sword.damage = base_damage
 
 func _physics_process(delta):
 	
