@@ -35,20 +35,25 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("move_up"):
 		#linear_velocity += Vector2(0,-1)*speed
-		Y = -1
+		if Y > -1:
+			Y -= 0.15
+		
 		current_direction = linear_velocity
 	elif Input.is_action_pressed("move_down"):
 		#linear_velocity += Vector2(0,1)*speed
-		Y = 1
+		if Y < 1:
+			Y += 0.15
 		current_direction = linear_velocity
 	else: Y = 0
 	if Input.is_action_pressed("move_left"):
 		#linear_velocity += Vector2(-1,0)*speed
-		X = -1
+		if X > -1:
+			X -= 0.15
 		current_direction = linear_velocity
 	elif Input.is_action_pressed("move_right"):
 		#linear_velocity += Vector2(1,0)*speed
-		X = 1
+		if X < 1:
+			X += 0.15
 		current_direction = linear_velocity
 	else: X = 0
 	
