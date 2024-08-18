@@ -2,8 +2,12 @@ extends RigidBody2D
 
 var health = 200
 var maxhealth = 200
+var damage = 20
 var damage_reduction = 0.9
 var defence = 10
+var regen = 1
+var scaling = 1.1
+
 
 var speed = 0
 const acceleration = 40
@@ -20,13 +24,16 @@ var dash_speed = 2000
 var time_dashed = 0
 var dash_duration = 0.25
 
-const base_damage = 20
 
 func _ready():
 	$Sword_position/Sword.start_position = $Sword_position/Sword_start.position
 	$Sword_position/Sword.position = $Sword_position/Sword_start.position
 	$Sword_position/Sword.ending_position = $Sword_position/Sword_end.position
-	$Sword_position/Sword.damage = base_damage
+	$Sword_position/Sword.damage = damage
+
+func _process(delta):
+	if health < maxhealth:
+		health += regen
 
 func _physics_process(delta):
 	
@@ -94,8 +101,6 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("move_dash") and dash_cooldown >= time_between_dashes:
 		dashing = true
-	
-	
 
 func takedamage(damage):
 	health -= damage*damage_reduction-defence
