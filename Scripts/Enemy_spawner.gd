@@ -28,3 +28,5 @@ func _process(delta):
 		cooldown = spawnspeed + randi_range(0,2)
 	else:
 		cooldown -= delta
+	
+	spawnspeed *= GlobalInfo.enemy_current_scaling-1
