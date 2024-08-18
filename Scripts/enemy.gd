@@ -17,9 +17,13 @@ func _process(delta):
 		pass
 
 func _physics_process(delta):
-	if player != null:
-		var player_direction = (player.position - position).normalized()
-		linear_velocity = Vector2(player_direction)*speed
+	if not GlobalInfo.leveling_up:
+		
+		if player != null:
+			var player_direction = (player.position - position).normalized()
+			linear_velocity = Vector2(player_direction)*speed
+	else:
+		linear_velocity = Vector2(0,0)
 
 func takedamage(damage):
 	health -= damage

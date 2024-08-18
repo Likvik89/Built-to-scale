@@ -1,23 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0yd86mw3rcap"]
+[gd_scene load_steps=6 format=3 uid="uid://c0yd86mw3rcap"]
 
 [ext_resource type="PackedScene" uid="uid://ci0j4q3jig45q" path="res://Scenes/player.tscn" id="1_smtau"]
 [ext_resource type="Texture2D" uid="uid://bfpur8rgtd05l" path="res://Sprites/icon.svg" id="2_hu5f0"]
 [ext_resource type="Script" path="res://Scripts/Enemy_spawner.gd" id="2_iii7c"]
 [ext_resource type="PackedScene" uid="uid://c6ywvlrx8k3qp" path="res://Scenes/enemy.tscn" id="3_mieoi"]
+[ext_resource type="PackedScene" uid="uid://cvpvyp4m33nao" path="res://Scenes/UI.tscn" id="5_opect"]
 
 [node name="Level" type="Node2D"]
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(3609, -703)
 scale = Vector2(297.656, 175.813)
 texture = ExtResource("2_hu5f0")
 
-[node name="Enemy_spawner" type="Node2D" parent="."]
+[node name="Enemy_spawner" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("2_iii7c")
 enemy = ExtResource("3_mieoi")
 
-[node name="enemy" parent="Enemy_spawner" instance=ExtResource("3_mieoi")]
+[node name="enemy" parent="CanvasLayer/Enemy_spawner" instance=ExtResource("3_mieoi")]
 
-[node name="Player" parent="Enemy_spawner" instance=ExtResource("1_smtau")]
+[node name="Player" parent="CanvasLayer/Enemy_spawner" instance=ExtResource("1_smtau")]
 unique_name_in_owner = true
-position = Vector2(912, 262)
+position = Vector2(1110, 688)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
+visible = false
+color = Color(0.454902, 0.454902, 0.454902, 1)
+
+[node name="UI" parent="." instance=ExtResource("5_opect")]

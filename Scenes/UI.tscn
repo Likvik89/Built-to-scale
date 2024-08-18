@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvpvyp4m33nao"]
+
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="1_1glgw"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_1glgw")
+
+[node name="Level_up" type="BoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.5
+offset_top = -20.0
+offset_right = 239.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health" type="Button" parent="Level_up"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Health
+"
+
+[node name="Damage_reduction" type="Button" parent="Level_up"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Damage reduction
+"
+
+[node name="Defence" type="Button" parent="Level_up"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Defence"
+
+[node name="Regen" type="Button" parent="Level_up"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Regen"
+
+[node name="Scaling" type="Button" parent="Level_up"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Scaling"
+
+[node name="Attack" type="Button" parent="Level_up"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Attack"

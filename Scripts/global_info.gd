@@ -8,6 +8,7 @@ var enemy_current_scaling = 1
 var enemy_scaling = 1.2
 var xp_to_next_level = 30
 var level_scaling = 2.1
+var leveling_up = false
 
 func _process(delta):
 	time_passed += delta
@@ -22,6 +23,4 @@ func _process(delta):
 func level_up():
 	level += 1
 	xp_to_next_level *= level_scaling
-	print(level)
-	print(xp)
-	print(xp_to_next_level)
+	leveling_up = true

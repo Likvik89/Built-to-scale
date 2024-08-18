@@ -22,11 +22,11 @@ func spawn():
 		add_child(spawn)
 
 func _process(delta):
-	
-	if cooldown <= 0:
-		spawn()
-		cooldown = spawnspeed + randi_range(0,2)
-	else:
-		cooldown -= delta
-	
-	spawnspeed *= GlobalInfo.enemy_current_scaling-1
+	if not GlobalInfo.leveling_up:
+		if cooldown <= 0:
+			spawn()
+			cooldown = spawnspeed + randi_range(0,2)
+		else:
+			cooldown -= delta
+		
+		spawnspeed *= GlobalInfo.enemy_current_scaling-1

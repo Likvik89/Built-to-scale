@@ -24,23 +24,24 @@ func _on_hitbox_body_entered(target):
 	
 
 func _process(delta):
-	if get_parent().get_parent().is_in_group("Player"):
-		if Input.is_action_pressed("sword_swing") and not swinging:
-			var tween_rotation = create_tween()
-			var tween_position = create_tween()
-			tween_rotation.tween_property(self, "rotation", 0.4, 0.5)
-			tween_position.tween_property(self, "position", ending_position, 0.5)
-			swinging = true
+	if not GlobalInfo.leveling_up:
+		if get_parent().get_parent().is_in_group("Player"):
+			if Input.is_action_pressed("sword_swing") and not swinging:
+				var tween_rotation = create_tween()
+				var tween_position = create_tween()
+				tween_rotation.tween_property(self, "rotation", 0.4, 0.5)
+				tween_position.tween_property(self, "position", ending_position, 0.5)
+				swinging = true
+			
 		
-	
-	if swinging:
-		$Sprite2D.visible = true
-	else:
-		$Sprite2D.visible = false
-	if position == ending_position:
-		position = start_position
-		rotation = start_rotation
-		swinging = false
+		if swinging:
+			$Sprite2D.visible = true
+		else:
+			$Sprite2D.visible = false
+		if position == ending_position:
+			position = start_position
+			rotation = start_rotation
+			swinging = false
 	
 	
 	
