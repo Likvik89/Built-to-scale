@@ -31,8 +31,8 @@ func _ready():
 func _physics_process(delta):
 	
 	
-	print("X = ",X)
-	print("Y = ",Y)
+	#print("X = ",X)
+	#print("Y = ",Y)
 	
 	
 	if dashing:

@@ -25,7 +25,7 @@ func _on_hitbox_body_entered(target):
 
 func _process(delta):
 	if get_parent().get_parent().is_in_group("Player"):
-		if Input.is_action_just_pressed("sword_swing") and not swinging:
+		if Input.is_action_pressed("sword_swing") and not swinging:
 			var tween_rotation = create_tween()
 			var tween_position = create_tween()
 			tween_rotation.tween_property(self, "rotation", 0.4, 0.5)

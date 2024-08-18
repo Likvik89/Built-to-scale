@@ -1,6 +1,8 @@
 Design doc
 
 Overview:
+  - Elevator pitch:
+    - A vampire survivors style game, where everything scales, including the scaling!
   - Top-down
   - Dying = restart
   - Can dash
