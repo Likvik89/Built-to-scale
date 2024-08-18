@@ -25,6 +25,11 @@ layout_mode = 2
 text = "Health
 "
 
+[node name="Damage" type="Button" parent="Level_up"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Attack"
+
 [node name="Damage_reduction" type="Button" parent="Level_up"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -46,7 +51,14 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Scaling"
 
-[node name="Attack" type="Button" parent="Level_up"]
+[node name="Info" type="Label" parent="."]
 unique_name_in_owner = true
-layout_mode = 2
-text = "Attack"
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="Level_up/Health" to="." method="_on_health_pressed"]
+[connection signal="pressed" from="Level_up/Damage" to="." method="_on_damage_pressed"]
+[connection signal="pressed" from="Level_up/Damage_reduction" to="." method="_on_damage_reduction_pressed"]
+[connection signal="pressed" from="Level_up/Defence" to="." method="_on_defence_pressed"]
+[connection signal="pressed" from="Level_up/Regen" to="." method="_on_regen_pressed"]
+[connection signal="pressed" from="Level_up/Scaling" to="." method="_on_scaling_pressed"]
