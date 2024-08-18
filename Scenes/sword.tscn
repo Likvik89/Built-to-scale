@@ -7,6 +7,7 @@
 size = Vector2(28, 175)
 
 [node name="Sword" type="Node2D" groups=["Weapons"]]
+rotation = 0.23911
 script = ExtResource("1_jt4yp")
 
 [node name="Hitbox" type="Area2D" parent="."]

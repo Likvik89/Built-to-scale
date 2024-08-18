@@ -21,11 +21,16 @@ var dash_duration = 0.25
 const base_damage = 20
 
 func _ready():
-	$Sword.start_position = $Sword_start.position
-	$Sword.ending_position = $Sword_end.position
-	$Sword.damage = base_damage
+	$Sword_position/Sword.start_position = $Sword_position/Sword_start.position
+	#$Sword_position/Sword.position = $Sword_position/Sword_startSword_start.position
+	$Sword_position/Sword.ending_position = $Sword_position/Sword_endSword_end.position
+	$Sword_position/Sword.damage = base_damage
 
 func _physics_process(delta):
+	
+	
+	print("X = ",X)
+	print("Y = ",Y)
 	
 	
 	if dashing:
@@ -58,24 +63,30 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_up"):
 		if Y > -1:
 			Y -= 0.2
-	elif Input.is_action_pressed("move_down"):
+	if Input.is_action_pressed("move_down"):
 		if Y < 1:
 			Y += 0.2
-	else: 
+	if not Input.is_action_pressed("move_up") and not Input.is_action_pressed("move_down"): 
 		if Y < 0:
-			Y += 0.2
+			if Y > -0.25:
+				Y = 0
+			else: 
+				Y += 0.2
 		if Y > 0:
 			Y -= 0.2
 	
 	if Input.is_action_pressed("move_left"):
 		if X > -1:
 			X -= 0.2
-	elif Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("move_right"):
 		if X < 1:
 			X += 0.2
-	else: 
-		if X < 0:
-			X += 0.2
+	if not Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left"): 
+		if X < 0 :
+			if X > -0.25:
+				X = 0
+			else:
+				X += 0.2
 		if X > 0:
 			X -= 0.2
 	
