@@ -10,6 +10,19 @@ var xp_to_next_level = 30
 var level_scaling = 2.1
 var leveling_up = false
 
+
+#player variables
+
+var health = 200
+var maxhealth = 200
+var damage = 20
+var damage_reduction = 0.9
+var defence = 10
+var regen = 1
+var scaling = 1.1
+
+
+
 func _process(delta):
 	time_passed += delta
 	if time_passed/10 >= enemy_timer:

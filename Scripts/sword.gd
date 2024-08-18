@@ -42,6 +42,7 @@ func _process(delta):
 			position = start_position
 			rotation = start_rotation
 			swinging = false
-	
+	else:
+		$Sprite2D.visible = false
 	
 	

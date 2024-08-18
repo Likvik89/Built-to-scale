@@ -23,7 +23,6 @@ To-do list:
 	  - Mechanics:
 		  - Enemies:
 			- Make enemies move and damage player
-			- Make enemies spawn
 		  - Player:
 			- Can level up
 			- Death:

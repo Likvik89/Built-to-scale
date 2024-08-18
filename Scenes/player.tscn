@@ -20,9 +20,6 @@ texture = ExtResource("1_v2k74")
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_6hr46")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.75, 0.75)
-
 [node name="Sword_position" type="Marker2D" parent="."]
 script = ExtResource("3_t8hj6")
 
@@ -38,3 +35,5 @@ position = Vector2(125, -125)
 [node name="Sword_start" type="Marker2D" parent="Sword_position"]
 unique_name_in_owner = true
 position = Vector2(125, 125)
+
+[node name="Camera2D" type="Camera2D" parent="."]
