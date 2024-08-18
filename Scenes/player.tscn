@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci0j4q3jig45q"]
+[gd_scene load_steps=6 format=3 uid="uid://ci0j4q3jig45q"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bajuw"]
 [ext_resource type="Texture2D" uid="uid://bfpur8rgtd05l" path="res://Sprites/icon.svg" id="1_v2k74"]
 [ext_resource type="PackedScene" uid="uid://c6ysanfo2s6x1" path="res://Scenes/sword.tscn" id="3_hh3un"]
+[ext_resource type="Script" path="res://Scripts/Sword_position.gd" id="3_t8hj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hr46"]
 size = Vector2(121, 120)
@@ -23,16 +24,17 @@ shape = SubResource("RectangleShape2D_6hr46")
 zoom = Vector2(0.75, 0.75)
 
 [node name="Sword_position" type="Marker2D" parent="."]
+script = ExtResource("3_t8hj6")
 
 [node name="Sword" parent="Sword_position" instance=ExtResource("3_hh3un")]
 unique_name_in_owner = true
 position = Vector2(277, -111)
 scale = Vector2(1, 1)
 
-[node name="Sword_start" type="Marker2D" parent="Sword_position"]
-unique_name_in_owner = true
-position = Vector2(125, -140)
-
 [node name="Sword_end" type="Marker2D" parent="Sword_position"]
 unique_name_in_owner = true
-position = Vector2(-125, -140)
+position = Vector2(125, -125)
+
+[node name="Sword_start" type="Marker2D" parent="Sword_position"]
+unique_name_in_owner = true
+position = Vector2(125, 125)

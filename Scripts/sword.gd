@@ -8,7 +8,7 @@ var start_position
 var ending_position
 var damage
 var start_rotation
-var has_started = false
+
 
 func _ready():
 	parent_group = get_parent().get_parent().get_groups()
@@ -28,17 +28,19 @@ func _process(delta):
 		if Input.is_action_just_pressed("sword_swing") and not swinging:
 			var tween_rotation = create_tween()
 			var tween_position = create_tween()
-			tween_rotation.tween_property(self, "rotation", -0.4, 0.5)
+			tween_rotation.tween_property(self, "rotation", 0.4, 0.5)
 			tween_position.tween_property(self, "position", ending_position, 0.5)
 			swinging = true
 		
+	
+	if swinging:
+		$Sprite2D.visible = true
+	else:
+		$Sprite2D.visible = false
 	if position == ending_position:
 		position = start_position
 		rotation = start_rotation
 		swinging = false
 	
-	if position != start_position and not has_started:
-		position = start_position
-		has_started = true
-		
-		pass
+	
+	

@@ -1,7 +1,9 @@
 extends RigidBody2D
 
 var health = 200
-const maxhealth = 200
+var maxhealth = 200
+var damage_reduction = 0.9
+var defence = 10
 
 var speed = 0
 const acceleration = 40
@@ -22,8 +24,8 @@ const base_damage = 20
 
 func _ready():
 	$Sword_position/Sword.start_position = $Sword_position/Sword_start.position
-	#$Sword_position/Sword.position = $Sword_position/Sword_startSword_start.position
-	$Sword_position/Sword.ending_position = $Sword_position/Sword_endSword_end.position
+	$Sword_position/Sword.position = $Sword_position/Sword_start.position
+	$Sword_position/Sword.ending_position = $Sword_position/Sword_end.position
 	$Sword_position/Sword.damage = base_damage
 
 func _physics_process(delta):
@@ -96,6 +98,5 @@ func _physics_process(delta):
 	
 
 func takedamage(damage):
-	health -= damage
-	print(health)
-	pass
+	health -= damage*damage_reduction-defence
+	

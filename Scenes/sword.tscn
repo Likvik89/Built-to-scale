@@ -7,7 +7,7 @@
 size = Vector2(28, 175)
 
 [node name="Sword" type="Node2D" groups=["Weapons"]]
-rotation = 0.23911
+rotation = 2.51327
 script = ExtResource("1_jt4yp")
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -17,6 +17,7 @@ position = Vector2(0, -24.5)
 shape = SubResource("RectangleShape2D_qr5gp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 scale = Vector2(7, 7)
 texture = ExtResource("1_csvoy")
 
