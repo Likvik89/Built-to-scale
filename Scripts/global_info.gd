@@ -28,7 +28,6 @@ func _process(delta):
 	if time_passed/10 >= enemy_timer:
 		enemy_timer += 1
 		enemy_current_scaling *= enemy_scaling
-		print(enemy_current_scaling)
 	
 	if xp >= xp_to_next_level:
 		level_up()

@@ -36,11 +36,19 @@ func _ready():
 
 func _process(delta):
 	if not GlobalInfo.leveling_up:
+#		print(invincible)
+		if invincible and not dashing:
+			
+			invinciblity_timer += delta
+			if invinciblity_timer >= 1:
+				invincible = false
+				invinciblity_timer = 0
 		
-		
-		
-		if health < maxhealth:
+		regen_timer += delta
+		if health < maxhealth and regen_timer >= 1:
 			health += regen
+			regen_timer = 0
+
 
 func _physics_process(delta):
 	if invincible:
@@ -61,8 +69,9 @@ func _physics_process(delta):
 			if time_dashed >= dash_duration:
 				dashing = false
 				time_dashed = 0
+				invincible = false
 		else:
-			invincible = false
+			
 			if dash_cooldown < time_between_dashes:
 				dash_cooldown += delta
 			if speed > maxspeed:
@@ -120,5 +129,6 @@ func takedamage(damage):
 			health -= damage*damage_reduction-defence
 		else:
 			health -= 1
-		
+		invincible = true
+
 		print(health)
