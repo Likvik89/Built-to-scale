@@ -3,7 +3,7 @@ extends CanvasLayer
 
 
 func _process(delta):
-	$Info/Time.text = str("Time passed: ", GlobalInfo.time_passed)
+	$Info/Time.text = str("Time passed: ", floor(GlobalInfo.time_passed), " seconds" )
 	$Info/Level.text = str("Level",GlobalInfo.level)
 	$Info/Enemy_scaling.text = str("Enemy scaling: ",GlobalInfo.enemy_current_scaling)
 	$Info/Health.text = str(" health: ", GlobalInfo.health,"/",GlobalInfo.maxhealth)
