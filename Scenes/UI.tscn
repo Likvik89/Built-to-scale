@@ -5,6 +5,114 @@
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_1glgw")
 
+[node name="Explenations" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Health_explanation" type="Label" parent="Explenations"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Increases the amount of damage you can take, before you die."
+
+[node name="Damage_explanation" type="Label" parent="Explenations"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.0
+offset_top = -11.5
+offset_right = 248.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Increases the amount of damage you do per swing of the sword."
+
+[node name="Damage_reduction_explanation" type="Label" parent="Explenations"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Increases the % of damage reduced."
+
+[node name="Defence_explanation" type="Label" parent="Explenations"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Increase the flat amount of damage you reduce attacks by."
+
+[node name="Regen_explanation" type="Label" parent="Explenations"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Increases the amount of health you regen per second."
+
+[node name="Scaling_explanation" type="Label" parent="Explenations"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Increases the %  your stats increase by, when you level up."
+
 [node name="Level_up" type="BoxContainer" parent="."]
 unique_name_in_owner = true
 anchors_preset = 8
@@ -20,45 +128,46 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Health" type="Button" parent="Level_up"]
-unique_name_in_owner = true
 layout_mode = 2
 text = "Health
 "
 
 [node name="Damage" type="Button" parent="Level_up"]
-unique_name_in_owner = true
 layout_mode = 2
 text = "Attack"
 
 [node name="Damage_reduction" type="Button" parent="Level_up"]
-unique_name_in_owner = true
 layout_mode = 2
 text = "Damage reduction
 "
 
 [node name="Defence" type="Button" parent="Level_up"]
-unique_name_in_owner = true
 layout_mode = 2
 text = "Defence"
 
 [node name="Regen" type="Button" parent="Level_up"]
-unique_name_in_owner = true
 layout_mode = 2
 text = "Regen"
 
 [node name="Scaling" type="Button" parent="Level_up"]
-unique_name_in_owner = true
 layout_mode = 2
 text = "Scaling"
 
-[node name="Info" type="Label" parent="."]
-unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 23.0
-
+[connection signal="mouse_entered" from="Level_up/Health" to="." method="_on_health_mouse_entered"]
+[connection signal="mouse_exited" from="Level_up/Health" to="." method="_on_health_mouse_exited"]
 [connection signal="pressed" from="Level_up/Health" to="." method="_on_health_pressed"]
+[connection signal="mouse_entered" from="Level_up/Damage" to="." method="_on_damage_mouse_entered"]
+[connection signal="mouse_exited" from="Level_up/Damage" to="." method="_on_damage_mouse_exited"]
 [connection signal="pressed" from="Level_up/Damage" to="." method="_on_damage_pressed"]
+[connection signal="mouse_entered" from="Level_up/Damage_reduction" to="." method="_on_damage_reduction_mouse_entered"]
+[connection signal="mouse_exited" from="Level_up/Damage_reduction" to="." method="_on_damage_reduction_mouse_exited"]
 [connection signal="pressed" from="Level_up/Damage_reduction" to="." method="_on_damage_reduction_pressed"]
+[connection signal="mouse_entered" from="Level_up/Defence" to="." method="_on_defence_mouse_entered"]
+[connection signal="mouse_exited" from="Level_up/Defence" to="." method="_on_defence_mouse_exited"]
 [connection signal="pressed" from="Level_up/Defence" to="." method="_on_defence_pressed"]
+[connection signal="mouse_entered" from="Level_up/Regen" to="." method="_on_regen_mouse_entered"]
+[connection signal="mouse_exited" from="Level_up/Regen" to="." method="_on_regen_mouse_exited"]
 [connection signal="pressed" from="Level_up/Regen" to="." method="_on_regen_pressed"]
+[connection signal="mouse_entered" from="Level_up/Scaling" to="." method="_on_scaling_mouse_entered"]
+[connection signal="mouse_exited" from="Level_up/Scaling" to="." method="_on_scaling_mouse_exited"]
 [connection signal="pressed" from="Level_up/Scaling" to="." method="_on_scaling_pressed"]

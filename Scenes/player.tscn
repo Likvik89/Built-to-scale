@@ -26,7 +26,6 @@ script = ExtResource("3_t8hj6")
 [node name="Sword" parent="Sword_position" instance=ExtResource("3_hh3un")]
 unique_name_in_owner = true
 position = Vector2(277, -111)
-scale = Vector2(1, 1)
 
 [node name="Sword_end" type="Marker2D" parent="Sword_position"]
 unique_name_in_owner = true
