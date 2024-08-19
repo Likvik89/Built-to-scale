@@ -35,6 +35,18 @@ func _ready():
 	$Sword_position/Sword.damage = damage
 
 func _process(delta):
+	
+	if global_position.x > 1500:
+		global_position.x = 1500
+	if global_position.x < -1500:
+		global_position.x = -1500
+	
+	if global_position.y > 1500:
+		global_position.y = 1500
+	if global_position.y < -1500:
+		global_position.y = -1500
+	
+	
 	if not GlobalInfo.leveling_up:
 #		print(invincible)
 		if invincible and not dashing:

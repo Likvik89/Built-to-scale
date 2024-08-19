@@ -11,8 +11,10 @@
 script = ExtResource("1_jt5sh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 2812.0
-offset_bottom = 1505.0
+offset_left = -2201.0
+offset_top = -1848.0
+offset_right = 2225.0
+offset_bottom = 1579.0
 texture = ExtResource("2_xc6tq")
 stretch_mode = 1
 
@@ -24,7 +26,7 @@ enemy = ExtResource("3_mieoi")
 
 [node name="Player" parent="Enemy_spawner" instance=ExtResource("1_smtau")]
 unique_name_in_owner = true
-position = Vector2(1110, 688)
+position = Vector2(127, 56)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 unique_name_in_owner = true
