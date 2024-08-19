@@ -3,6 +3,17 @@ extends CanvasLayer
 
 
 func _process(delta):
+	$Info/Time.text = str("Time passed: ", GlobalInfo.time_passed)
+	$Info/Level.text = str("Level",GlobalInfo.level)
+	$Info/Enemy_scaling.text = str("Enemy scaling: ",GlobalInfo.enemy_current_scaling)
+	$Info/Health.text = str(" health: ", GlobalInfo.health,"/",GlobalInfo.maxhealth)
+	$Info/Damage.text = str("Damage: ",GlobalInfo.damage)
+	$Info/Damage_reduction.text = str("Damage reduction: ", (1-GlobalInfo.damage_reduction)*100,"%")
+	$Info/Defence.text = str("Defence: ", GlobalInfo.defence)
+	$Info/Regen.text = str("Regen per sec: ", GlobalInfo.regen)
+	$Info/Scaling.text = str("Stat scaling: ", GlobalInfo.scaling)
+	
+	
 	if GlobalInfo.leveling_up:
 		$Level_up.visible = true
 	else:

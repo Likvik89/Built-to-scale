@@ -35,6 +35,7 @@ func _ready():
 	$Sword_position/Sword.damage = damage
 
 func _process(delta):
+	GlobalInfo.health = health
 	
 	if global_position.x > 1500:
 		global_position.x = 1500
