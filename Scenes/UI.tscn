@@ -153,6 +153,37 @@ text = "Regen"
 layout_mode = 2
 text = "Scaling"
 
+[node name="Info" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Health" type="Label" parent="Info"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Info"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Info"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Info"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="Info"]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="Info"]
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="Info"]
+layout_mode = 2
+
+[node name="Label8" type="Label" parent="Info"]
+layout_mode = 2
+
+[node name="Label9" type="Label" parent="Info"]
+layout_mode = 2
+
 [connection signal="mouse_entered" from="Level_up/Health" to="." method="_on_health_mouse_entered"]
 [connection signal="mouse_exited" from="Level_up/Health" to="." method="_on_health_mouse_exited"]
 [connection signal="pressed" from="Level_up/Health" to="." method="_on_health_pressed"]

@@ -9,7 +9,7 @@
 size = Vector2(10, 10)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x33ai"]
-radius = 23.0
+radius = 15.0
 
 [node name="Player" type="RigidBody2D" groups=["Player"]]
 gravity_scale = 0.0
@@ -17,7 +17,7 @@ lock_rotation = true
 script = ExtResource("1_bajuw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.25, 0.254)
 texture = ExtResource("1_v2k74")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -32,13 +32,14 @@ position = Vector2(277, -111)
 
 [node name="Sword_end" type="Marker2D" parent="Sword_position"]
 unique_name_in_owner = true
-position = Vector2(125, -125)
+position = Vector2(75, -75)
 
 [node name="Sword_start" type="Marker2D" parent="Sword_position"]
 unique_name_in_owner = true
-position = Vector2(125, 125)
+position = Vector2(75, 75)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 
 [node name="Hurtbox" type="Area2D" parent="."]
 

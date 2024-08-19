@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6ywvlrx8k3qp"]
+[gd_scene load_steps=6 format=3 uid="uid://c6ywvlrx8k3qp"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_cvbba"]
 [ext_resource type="Texture2D" uid="uid://hvcaohhxsvmx" path="res://Sprites/Slime.png" id="1_nyjsw"]
+[ext_resource type="Texture2D" uid="uid://cmshbp1hjavq5" path="res://Sprites/Slime_hitflash.png" id="3_l0rek"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clhqi"]
-radius = 20.0
-height = 74.0
+radius = 11.0
+height = 38.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bc0qq"]
-radius = 25.0
-height = 88.0
+radius = 13.0
+height = 42.0
 
 [node name="enemy" type="RigidBody2D" groups=["Enemies"]]
 gravity_scale = 0.0
@@ -17,7 +18,7 @@ lock_rotation = true
 script = ExtResource("1_cvbba")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(5.685, 5.685)
+scale = Vector2(3, 3)
 texture = ExtResource("1_nyjsw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -29,5 +30,12 @@ shape = SubResource("CapsuleShape2D_clhqi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_bc0qq")
+
+[node name="Hitflash" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, 3)
+scale = Vector2(3, 3)
+texture = ExtResource("3_l0rek")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

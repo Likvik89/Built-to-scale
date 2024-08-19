@@ -3,9 +3,10 @@ extends RigidBody2D
 var health = 30
 var maxhealth = 30
 var player 
-var speed = 100
+var speed = 50
 var damage = 10
-
+var hit_timer = 0
+var hit = false
 
 func _ready():
 	health *= GlobalInfo.enemy_current_scaling
@@ -13,9 +14,18 @@ func _ready():
 	damage *= GlobalInfo.enemy_current_scaling
 
 func _process(delta):
+	if hit:
+		$Hitflash.visible = true
+		hit_timer += delta
+		if hit_timer > 0.1:
+			hit = false
+			hit_timer = 0
+	else:
+		$Hitflash.visible = false
+	
 	if health <= 0:
 		die()
-		pass
+		
 
 func _physics_process(delta):
 	if not GlobalInfo.leveling_up:
@@ -28,6 +38,7 @@ func _physics_process(delta):
 
 func takedamage(damage):
 	health -= damage
+	hit = true
 
 func die():
 	GlobalInfo.xp += maxhealth

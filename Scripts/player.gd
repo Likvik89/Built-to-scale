@@ -13,14 +13,14 @@ var speed = 0
 const acceleration = 40
 const deacceleration = 10
 var stopping_power = 0.8
-const maxspeed = 300
+const maxspeed = 200
 var dashing = false
 var X = 0
 var Y = 0
 
 var dash_cooldown = 3
 var time_between_dashes = 3
-var dash_speed = 2000
+var dash_speed = 1500
 var time_dashed = 0
 var dash_duration = 0.25
 

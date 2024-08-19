@@ -2,18 +2,19 @@
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_jt5sh"]
 [ext_resource type="PackedScene" uid="uid://ci0j4q3jig45q" path="res://Scenes/player.tscn" id="1_smtau"]
-[ext_resource type="Texture2D" uid="uid://bfpur8rgtd05l" path="res://Sprites/icon.svg" id="2_hu5f0"]
 [ext_resource type="Script" path="res://Scripts/Enemy_spawner.gd" id="2_iii7c"]
+[ext_resource type="Texture2D" uid="uid://bnfx1w3br1b3o" path="res://Sprites/Background.png" id="2_xc6tq"]
 [ext_resource type="PackedScene" uid="uid://c6ywvlrx8k3qp" path="res://Scenes/enemy.tscn" id="3_mieoi"]
 [ext_resource type="PackedScene" uid="uid://cvpvyp4m33nao" path="res://Scenes/UI.tscn" id="5_opect"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_jt5sh")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(3609, -703)
-scale = Vector2(297.656, 175.813)
-texture = ExtResource("2_hu5f0")
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 2812.0
+offset_bottom = 1505.0
+texture = ExtResource("2_xc6tq")
+stretch_mode = 1
 
 [node name="Enemy_spawner" type="Node2D" parent="."]
 script = ExtResource("2_iii7c")
