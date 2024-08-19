@@ -25,7 +25,7 @@ var scaling = 1.1
 
 func _process(delta):
 	time_passed += delta
-	if time_passed/10 >= enemy_timer:
+	if time_passed/20 >= enemy_timer:
 		enemy_timer += 1
 		enemy_current_scaling *= enemy_scaling
 	

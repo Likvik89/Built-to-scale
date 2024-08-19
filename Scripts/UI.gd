@@ -4,9 +4,9 @@ extends CanvasLayer
 
 func _process(delta):
 	$Info/Time.text = str("Time passed: ", floor(GlobalInfo.time_passed), " seconds" )
-	$Info/Level.text = str("Level",GlobalInfo.level)
+	$Info/Level.text = str("Level ",GlobalInfo.level)
 	$Info/Enemy_scaling.text = str("Enemy scaling: ",GlobalInfo.enemy_current_scaling)
-	$Info/Health.text = str(" health: ", GlobalInfo.health,"/",GlobalInfo.maxhealth)
+	$Info/Health.text = str("Health: ", GlobalInfo.health,"/",GlobalInfo.maxhealth)
 	$Info/Damage.text = str("Damage: ",GlobalInfo.damage)
 	$Info/Damage_reduction.text = str("Damage reduction: ", (1-GlobalInfo.damage_reduction)*100,"%")
 	$Info/Defence.text = str("Defence: ", GlobalInfo.defence)
@@ -16,8 +16,10 @@ func _process(delta):
 	
 	if GlobalInfo.leveling_up:
 		$Level_up.visible = true
+		$Level_up_text.visible = true
 	else:
 		$Level_up.visible = false
+		$Level_up_text.visible = false
 
 
 
