@@ -6,6 +6,7 @@ var damage = 20
 var damage_reduction = 0.9
 var defence = 10
 var regen = 1
+var regen_timer = 1
 var scaling = 1.1
 
 var speed = 0
@@ -24,7 +25,7 @@ var time_dashed = 0
 var dash_duration = 0.25
 
 var invincible = false
-var invinciblity_time 
+var invinciblity_timer = 0
 
 
 func _ready():
@@ -35,10 +36,18 @@ func _ready():
 
 func _process(delta):
 	if not GlobalInfo.leveling_up:
+		
+		
+		
 		if health < maxhealth:
 			health += regen
 
 func _physics_process(delta):
+	if invincible:
+		get_node("CollisionShape2D").disabled = true
+	else:
+		get_node("CollisionShape2D").disabled = false
+	
 	if not GlobalInfo.leveling_up:
 		
 		if dashing:
@@ -111,4 +120,5 @@ func takedamage(damage):
 			health -= damage*damage_reduction-defence
 		else:
 			health -= 1
+		
 		print(health)
