@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci0j4q3jig45q"]
+[gd_scene load_steps=7 format=3 uid="uid://ci0j4q3jig45q"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bajuw"]
 [ext_resource type="Texture2D" uid="uid://bfpur8rgtd05l" path="res://Sprites/icon.svg" id="1_v2k74"]
@@ -6,7 +6,10 @@
 [ext_resource type="Script" path="res://Scripts/Sword_position.gd" id="3_t8hj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hr46"]
-size = Vector2(121, 120)
+size = Vector2(10, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x33ai"]
+radius = 23.0
 
 [node name="Player" type="RigidBody2D" groups=["Player"]]
 gravity_scale = 0.0
@@ -14,10 +17,10 @@ lock_rotation = true
 script = ExtResource("1_bajuw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_v2k74")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_6hr46")
 
 [node name="Sword_position" type="Marker2D" parent="."]
@@ -36,3 +39,8 @@ unique_name_in_owner = true
 position = Vector2(125, 125)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_x33ai")

@@ -8,7 +8,6 @@ var defence = 10
 var regen = 1
 var scaling = 1.1
 
-
 var speed = 0
 const acceleration = 40
 const deacceleration = 10
@@ -23,6 +22,9 @@ var time_between_dashes = 3
 var dash_speed = 2000
 var time_dashed = 0
 var dash_duration = 0.25
+
+var invincible = false
+var invinciblity_time 
 
 
 func _ready():
@@ -40,6 +42,7 @@ func _physics_process(delta):
 	if not GlobalInfo.leveling_up:
 		
 		if dashing:
+			invincible = true
 			dash_cooldown = 0
 			speed = dash_speed
 			linear_velocity = linear_velocity.normalized()*speed
@@ -50,6 +53,7 @@ func _physics_process(delta):
 				dashing = false
 				time_dashed = 0
 		else:
+			invincible = false
 			if dash_cooldown < time_between_dashes:
 				dash_cooldown += delta
 			if speed > maxspeed:
@@ -102,5 +106,9 @@ func _physics_process(delta):
 		linear_velocity = Vector2(0,0)
 
 func takedamage(damage):
-	health -= damage*damage_reduction-defence
-	
+	if not invincible:
+		if damage*damage_reduction-defence > 1:
+			health -= damage*damage_reduction-defence
+		else:
+			health -= 1
+		print(health)

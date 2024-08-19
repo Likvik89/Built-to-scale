@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6ywvlrx8k3qp"]
+[gd_scene load_steps=5 format=3 uid="uid://c6ywvlrx8k3qp"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_cvbba"]
 [ext_resource type="Texture2D" uid="uid://hvcaohhxsvmx" path="res://Sprites/Slime.png" id="1_nyjsw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clhqi"]
+radius = 20.0
+height = 74.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bc0qq"]
 radius = 25.0
-height = 90.0
+height = 88.0
 
 [node name="enemy" type="RigidBody2D" groups=["Enemies"]]
 gravity_scale = 0.0
@@ -19,3 +23,11 @@ texture = ExtResource("1_nyjsw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_clhqi")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bc0qq")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
