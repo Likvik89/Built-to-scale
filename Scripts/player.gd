@@ -60,9 +60,12 @@ func _process(delta):
 				invinciblity_timer = 0
 		
 		regen_timer += delta
+		
 		if health < maxhealth and regen_timer >= 1:
+			print(regen)
 			health += regen
 			regen_timer = 0
+	
 	maxhealth = GlobalInfo.maxhealth
 	damage = GlobalInfo.damage
 	damage_reduction = GlobalInfo.damage_reduction
@@ -150,7 +153,7 @@ func _physics_process(delta):
 
 func takedamage(damage):
 	if not invincible:
-		if damage*damage_reduction-defence > 1:
+		if damage*damage_reduction-defence < 1:
 			health -= damage*(1-damage_reduction)-defence
 		else:
 			health -= 1

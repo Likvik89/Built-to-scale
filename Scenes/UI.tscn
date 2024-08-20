@@ -21,6 +21,21 @@ grow_vertical = 2
 text = "PAUSED"
 horizontal_alignment = 1
 
+[node name="Exit" type="Button" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 31.0
+offset_right = 21.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT"
+
 [node name="Explenations" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 5
@@ -149,6 +164,7 @@ vertical_alignment = 1
 
 [node name="Level_up" type="BoxContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -196,6 +212,10 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Level" type="Label" parent="Info"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="XP" type="Label" parent="Info"]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -251,6 +271,7 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Retry"
 
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="mouse_entered" from="Level_up/Health" to="." method="_on_health_mouse_entered"]
 [connection signal="mouse_exited" from="Level_up/Health" to="." method="_on_health_mouse_exited"]
 [connection signal="pressed" from="Level_up/Health" to="." method="_on_health_pressed"]

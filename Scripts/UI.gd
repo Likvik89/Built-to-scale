@@ -12,6 +12,7 @@ func _process(delta):
 	$Info/Defence.text = str("Defence: ", GlobalInfo.defence)
 	$Info/Regen.text = str("Regen per sec: ", GlobalInfo.regen)
 	$Info/Scaling.text = str("Stat scaling: ", GlobalInfo.scaling)
+	$Info/XP.text = str("XP to next level: ",GlobalInfo.xp,"/",GlobalInfo.xp_to_next_level)
 	
 	if GlobalInfo.dead:
 		$Gameover.visible = true
@@ -20,9 +21,10 @@ func _process(delta):
 	
 	if GlobalInfo.paused:
 		$Paused_text.visible = true
+		$Exit.visible = true
 	else:
 		$Paused_text.visible = false
-	
+		$Exit.visible = false
 	if GlobalInfo.leveling_up:
 		$Level_up.visible = true
 		$Level_up_text.visible = true
@@ -106,3 +108,8 @@ func _on_retry_pressed():
 	GlobalInfo.leveling_up = false
 	GlobalInfo.paused = false
 
+
+
+func _on_exit_pressed():
+	get_tree().quit()
+	pass # Replace with function body.
