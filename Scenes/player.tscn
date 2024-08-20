@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ci0j4q3jig45q"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bajuw"]
-[ext_resource type="Texture2D" uid="uid://bfpur8rgtd05l" path="res://Sprites/icon.svg" id="1_v2k74"]
+[ext_resource type="Texture2D" uid="uid://drh61fvt3ii7u" path="res://Sprites/Guard_face.png" id="2_k3g7n"]
 [ext_resource type="PackedScene" uid="uid://c6ysanfo2s6x1" path="res://Scenes/sword.tscn" id="3_hh3un"]
 [ext_resource type="Script" path="res://Scripts/Sword_position.gd" id="3_t8hj6"]
 
@@ -17,8 +17,7 @@ lock_rotation = true
 script = ExtResource("1_bajuw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.254)
-texture = ExtResource("1_v2k74")
+texture = ExtResource("2_k3g7n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6hr46")
