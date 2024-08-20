@@ -9,7 +9,7 @@ var enemy_scaling = 1.2
 var xp_to_next_level = 30
 var level_scaling = 2.1
 var leveling_up = false
-
+var paused = false
 
 #player variables
 
@@ -24,10 +24,16 @@ var scaling = 1.1
 
 
 func _process(delta):
-	time_passed += delta
-	if time_passed/20 >= enemy_timer:
-		enemy_timer += 1
-		enemy_current_scaling *= enemy_scaling
+	if not leveling_up:
+		if Input.is_action_just_pressed("Pause"):
+			if not paused:
+				paused = true
+			else:
+				paused = false
+		time_passed += delta
+		if time_passed/20 >= enemy_timer:
+			enemy_timer += 1
+			enemy_current_scaling *= enemy_scaling
 	
 	if xp >= xp_to_next_level:
 		level_up()

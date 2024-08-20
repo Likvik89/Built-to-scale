@@ -48,7 +48,7 @@ func _process(delta):
 		global_position.y = -1500
 	
 	
-	if not GlobalInfo.leveling_up:
+	if not GlobalInfo.leveling_up and not GlobalInfo.paused:
 #		print(invincible)
 		if invincible and not dashing:
 			
@@ -75,7 +75,7 @@ func _physics_process(delta):
 	else:
 		get_node("CollisionShape2D").disabled = false
 	
-	if not GlobalInfo.leveling_up:
+	if not GlobalInfo.leveling_up and not GlobalInfo.paused:
 		
 		if dashing:
 			invincible = true
