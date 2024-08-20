@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var health = 1
+var health = 200
 var maxhealth = 200
 var damage = 20
 var damage_reduction = 0.9
@@ -61,7 +61,7 @@ func _process(delta):
 		
 		regen_timer += delta
 		if health < maxhealth and regen_timer >= 1:
-			#health += regen
+			health += regen
 			regen_timer = 0
 	maxhealth = GlobalInfo.maxhealth
 	damage = GlobalInfo.damage
@@ -147,7 +147,7 @@ func _physics_process(delta):
 func takedamage(damage):
 	if not invincible:
 		if damage*damage_reduction-defence > 1:
-			health -= damage*damage_reduction-defence
+			health -= damage*(1-damage_reduction)-defence
 		else:
 			health -= 1
 		invincible = true

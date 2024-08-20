@@ -8,7 +8,7 @@ func _process(delta):
 	$Info/Enemy_scaling.text = str("Enemy scaling: ",GlobalInfo.enemy_current_scaling)
 	$Info/Health.text = str("Health: ", GlobalInfo.health,"/",GlobalInfo.maxhealth)
 	$Info/Damage.text = str("Damage: ",GlobalInfo.damage)
-	$Info/Damage_reduction.text = str("Damage reduction: ", (1-GlobalInfo.damage_reduction)*100,"%")
+	$Info/Damage_reduction.text = str("Damage reduction: ", (GlobalInfo.damage_reduction)*100,"%")
 	$Info/Defence.text = str("Defence: ", GlobalInfo.defence)
 	$Info/Regen.text = str("Regen per sec: ", GlobalInfo.regen)
 	$Info/Scaling.text = str("Stat scaling: ", GlobalInfo.scaling)
