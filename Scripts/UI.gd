@@ -49,7 +49,7 @@ func _on_regen_pressed():
 	GlobalInfo.regen *= GlobalInfo.scaling
 	GlobalInfo.leveling_up = false
 func _on_scaling_pressed():
-	GlobalInfo.scaling *= 1.1
+	GlobalInfo.scaling *= 1.2
 	GlobalInfo.leveling_up = false
 
 

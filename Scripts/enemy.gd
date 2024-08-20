@@ -4,7 +4,7 @@ var health = 30
 var maxhealth = 30
 var player 
 var speed = 50
-var damage = 10
+var damage = 20
 var hit_timer = 0
 var hit = false
 

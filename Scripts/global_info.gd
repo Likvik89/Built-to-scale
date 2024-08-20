@@ -19,7 +19,7 @@ var damage = 20
 var damage_reduction = 0.1
 var defence = 10
 var regen = 1
-var scaling = 1.1
+var scaling = 1.2
 var dead = false
 
 
@@ -35,7 +35,7 @@ func _process(delta):
 				else:
 					paused = false
 			time_passed += delta
-			if time_passed/20 >= enemy_timer:
+			if time_passed/35 >= enemy_timer:
 				enemy_timer += 1
 				enemy_current_scaling *= 1.1
 		
