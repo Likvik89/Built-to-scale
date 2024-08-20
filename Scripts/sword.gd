@@ -17,14 +17,14 @@ func _ready():
 	
 
 func _on_hitbox_body_entered(target):
-	if swinging and not GlobalInfo.leveling_up and not GlobalInfo.paused:
+	if swinging and not GlobalInfo.leveling_up and not GlobalInfo.paused and not GlobalInfo.dead:
 		if target.get_groups() != parent_group:
 			if target.is_in_group("Player") or target.is_in_group("Enemies"):
 				target.takedamage(damage)
 	
 
 func _process(delta):
-	if not GlobalInfo.leveling_up and not GlobalInfo.paused:
+	if not GlobalInfo.leveling_up and not GlobalInfo.paused and not GlobalInfo.dead:
 		if get_parent().get_parent().is_in_group("Player"):
 			if Input.is_action_pressed("sword_swing") and not swinging:
 				var tween_rotation = create_tween()

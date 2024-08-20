@@ -13,6 +13,10 @@ func _process(delta):
 	$Info/Regen.text = str("Regen per sec: ", GlobalInfo.regen)
 	$Info/Scaling.text = str("Stat scaling: ", GlobalInfo.scaling)
 	
+	if GlobalInfo.dead:
+		$Gameover.visible = true
+	#else:
+		#$Gameover.visible = false
 	
 	if GlobalInfo.paused:
 		$Paused_text.visible = true
@@ -79,3 +83,26 @@ func _on_scaling_mouse_entered():
 	$Explenations/Scaling_explanation.visible = true
 func _on_scaling_mouse_exited():
 	$Explenations/Scaling_explanation.visible = false
+
+
+func _on_retry_pressed():
+	get_tree().change_scene_to_file("res://Scenes/level.tscn")
+	GlobalInfo.dead = false
+	GlobalInfo.maxhealth = 200
+	GlobalInfo.damage = 20
+	GlobalInfo.damage_reduction = 0.9
+	GlobalInfo.defence = 10
+	GlobalInfo.regen = 1
+	GlobalInfo.scaling = 1.1
+	
+	GlobalInfo.time_passed = 0
+	GlobalInfo.xp = 0
+	GlobalInfo.level = 1
+	GlobalInfo.enemy_timer = 1
+	GlobalInfo.enemy_current_scaling = 1
+	GlobalInfo.enemy_scaling = 1.2
+	GlobalInfo.xp_to_next_level = 30
+	GlobalInfo.level_scaling = 2.1
+	GlobalInfo.leveling_up = false
+	GlobalInfo.paused = false
+

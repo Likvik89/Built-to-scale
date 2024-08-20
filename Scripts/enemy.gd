@@ -28,7 +28,7 @@ func _process(delta):
 		
 
 func _physics_process(delta):
-	if not GlobalInfo.leveling_up and not GlobalInfo.paused:
+	if not GlobalInfo.leveling_up and not GlobalInfo.paused and not GlobalInfo.dead:
 		
 		if player != null:
 			var player_direction = (player.position - position).normalized()

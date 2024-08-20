@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var health = 200
+var health = 1
 var maxhealth = 200
 var damage = 20
 var damage_reduction = 0.9
@@ -36,6 +36,8 @@ func _ready():
 
 func _process(delta):
 	GlobalInfo.health = health
+	if health <= 0:
+		GlobalInfo.dead = true
 	
 	if global_position.x > 1500:
 		global_position.x = 1500
@@ -48,7 +50,7 @@ func _process(delta):
 		global_position.y = -1500
 	
 	
-	if not GlobalInfo.leveling_up and not GlobalInfo.paused:
+	if not GlobalInfo.leveling_up and not GlobalInfo.paused and not GlobalInfo.dead:
 #		print(invincible)
 		if invincible and not dashing:
 			
@@ -59,7 +61,7 @@ func _process(delta):
 		
 		regen_timer += delta
 		if health < maxhealth and regen_timer >= 1:
-			health += regen
+			#health += regen
 			regen_timer = 0
 	maxhealth = GlobalInfo.maxhealth
 	damage = GlobalInfo.damage
@@ -75,7 +77,7 @@ func _physics_process(delta):
 	else:
 		get_node("CollisionShape2D").disabled = false
 	
-	if not GlobalInfo.leveling_up and not GlobalInfo.paused:
+	if not GlobalInfo.leveling_up and not GlobalInfo.paused and not GlobalInfo.dead:
 		
 		if dashing:
 			invincible = true

@@ -20,23 +20,27 @@ var damage_reduction = 0.9
 var defence = 10
 var regen = 1
 var scaling = 1.1
+var dead = false
 
 
+func _ready():
+	get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
 
 func _process(delta):
-	if not leveling_up:
-		if Input.is_action_just_pressed("Pause"):
-			if not paused:
-				paused = true
-			else:
-				paused = false
-		time_passed += delta
-		if time_passed/20 >= enemy_timer:
-			enemy_timer += 1
-			enemy_current_scaling *= enemy_scaling
-	
-	if xp >= xp_to_next_level:
-		level_up()
+	if not dead:
+		if not leveling_up:
+			if Input.is_action_just_pressed("Pause"):
+				if not paused:
+					paused = true
+				else:
+					paused = false
+			time_passed += delta
+			if time_passed/20 >= enemy_timer:
+				enemy_timer += 1
+				enemy_current_scaling *= enemy_scaling
+		
+		if xp >= xp_to_next_level:
+			level_up()
 
 func level_up():
 	level += 1
