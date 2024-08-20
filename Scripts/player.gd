@@ -87,10 +87,13 @@ func _physics_process(delta):
 			
 			time_dashed += delta
 			
+			rotation += 0.35
+			
 			if time_dashed >= dash_duration:
 				dashing = false
 				time_dashed = 0
 				invincible = false
+				rotation = 0
 		else:
 			
 			if dash_cooldown < time_between_dashes:
@@ -141,6 +144,7 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("move_dash") and dash_cooldown >= time_between_dashes:
 			dashing = true
+			
 	else:
 		linear_velocity = Vector2(0,0)
 
