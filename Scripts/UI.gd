@@ -14,6 +14,11 @@ func _process(delta):
 	$Info/Scaling.text = str("Stat scaling: ", GlobalInfo.scaling)
 	
 	
+	if GlobalInfo.paused:
+		$Paused_text.visible = true
+	else:
+		$Paused_text.visible = false
+	
 	if GlobalInfo.leveling_up:
 		$Level_up.visible = true
 		$Level_up_text.visible = true
