@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0yd86mw3rcap"]
+[gd_scene load_steps=10 format=3 uid="uid://c0yd86mw3rcap"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_jt5sh"]
 [ext_resource type="PackedScene" uid="uid://ci0j4q3jig45q" path="res://Scenes/player.tscn" id="1_smtau"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bnfx1w3br1b3o" path="res://Sprites/Background.png" id="2_xc6tq"]
 [ext_resource type="PackedScene" uid="uid://c6ywvlrx8k3qp" path="res://Scenes/enemy.tscn" id="3_mieoi"]
 [ext_resource type="PackedScene" uid="uid://cvpvyp4m33nao" path="res://Scenes/UI.tscn" id="5_opect"]
+[ext_resource type="Texture2D" uid="uid://cthirohnuqfab" path="res://Sprites/River.png" id="7_57wqx"]
+[ext_resource type="Texture2D" uid="uid://ch5yh75kcxk15" path="res://Sprites/Pond(duck).png" id="8_ldee0"]
+[ext_resource type="Texture2D" uid="uid://dkfh6oavfw0dk" path="res://Sprites/Pond.png" id="9_wyqb0"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_jt5sh")
@@ -14,15 +17,64 @@ script = ExtResource("1_jt5sh")
 offset_left = -2201.0
 offset_top = -1848.0
 offset_right = 2225.0
-offset_bottom = 1579.0
+offset_bottom = 1841.0
 texture = ExtResource("2_xc6tq")
 stretch_mode = 1
+
+[node name="River2" type="TextureRect" parent="."]
+offset_left = -1507.0
+offset_top = 1495.0
+offset_right = 1516.0
+offset_bottom = 1559.0
+texture = ExtResource("7_57wqx")
+stretch_mode = 1
+
+[node name="River" type="TextureRect" parent="."]
+offset_left = -1514.0
+offset_top = -1553.0
+offset_right = 1532.0
+offset_bottom = -1489.0
+texture = ExtResource("7_57wqx")
+stretch_mode = 1
+
+[node name="Rivers" type="Node2D" parent="."]
+rotation = 1.5708
+
+[node name="River4" type="TextureRect" parent="Rivers"]
+offset_left = -1520.0
+offset_top = 1495.0
+offset_right = 1514.0
+offset_bottom = 1559.0
+texture = ExtResource("7_57wqx")
+stretch_mode = 1
+
+[node name="River3" type="TextureRect" parent="Rivers"]
+offset_left = -1530.0
+offset_top = -1556.0
+offset_right = 1511.0
+offset_bottom = -1492.0
+texture = ExtResource("7_57wqx")
+stretch_mode = 1
+
+[node name="Pond(duck)" type="Sprite2D" parent="."]
+position = Vector2(-1514, 1521)
+texture = ExtResource("8_ldee0")
+
+[node name="Pond" type="Sprite2D" parent="."]
+position = Vector2(-1525, -1527)
+texture = ExtResource("9_wyqb0")
+
+[node name="Pond2" type="Sprite2D" parent="."]
+position = Vector2(1530, -1523)
+texture = ExtResource("9_wyqb0")
+
+[node name="Pond3" type="Sprite2D" parent="."]
+position = Vector2(1535, 1531)
+texture = ExtResource("9_wyqb0")
 
 [node name="Enemy_spawner" type="Node2D" parent="."]
 script = ExtResource("2_iii7c")
 enemy = ExtResource("3_mieoi")
-
-[node name="enemy" parent="Enemy_spawner" instance=ExtResource("3_mieoi")]
 
 [node name="Player" parent="Enemy_spawner" instance=ExtResource("1_smtau")]
 unique_name_in_owner = true

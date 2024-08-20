@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/sword.gd" id="1_jt4yp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr5gp"]
-size = Vector2(12.2047, 62.4201)
+size = Vector2(9.18983, 60.8021)
 
 [node name="Sword" type="Node2D" groups=["Weapons"]]
 rotation = 2.51327
@@ -13,12 +13,12 @@ script = ExtResource("1_jt4yp")
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-0.0791073, -16.2118)
+position = Vector2(-0.189721, -15.4028)
 shape = SubResource("RectangleShape2D_qr5gp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-scale = Vector2(3, 3)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_csvoy")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

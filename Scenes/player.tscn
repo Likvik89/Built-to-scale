@@ -32,11 +32,11 @@ position = Vector2(277, -111)
 
 [node name="Sword_end" type="Marker2D" parent="Sword_position"]
 unique_name_in_owner = true
-position = Vector2(75, -75)
+position = Vector2(50, -50)
 
 [node name="Sword_start" type="Marker2D" parent="Sword_position"]
 unique_name_in_owner = true
-position = Vector2(75, 75)
+position = Vector2(50, 50)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
